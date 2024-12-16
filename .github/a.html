@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>角色介绍</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: #ffac64;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        header {
+            width: 100%;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .character, .emoticons, .how-to-get {
+            width: 90%;
+            max-width: 1200px;
+            padding: 20px 0;
+            box-sizing: border-box;
+        }
+        .emoticons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .emoticons img {
+            width: 250px;
+            margin: 10px;
+        }
+        .button-container {
+            width: 100%;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .blue-button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 24px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-transform: uppercase; /* Capitalizes the text */
+            letter-spacing: 1px;
+        }
+        .blue-button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05); /* Slight zoom effect on hover */
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 0 15px;
+            }
+            .emoticons img {
+                width: 100%;
+                max-width: 250px;
+            }
+        }
+
+        /* Style for separating image and button */
+        .separated-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px; /* Space between elements */
+        }
+
+        /* Security statement style */
+        .security-statement {
+            margin-top: 20px;
+            width: 90%;
+            max-width: 1200px;
+            text-align: center;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <img src="2.png" alt="SSR Logo" style="width: 100%; max-width: 300px;">
+</header>
+<div class="character">
+    <img src="1.png" alt="Monkey" style="display: block; margin: auto;">
+</div>
+<div class="emoticons">
+    <img src="3.png" alt="Emoticon 1">
+    <!-- Add more emoticons here if needed -->
+</div>
+<div class="how-to-get separated-content">
+    <img src="4.png" alt="SSR Family" style="display: block; margin: auto;">
+    <p style="margin: 10px 0;"></p>
+    <img src="5.png" alt="WeChat" style="display: block; margin: auto;">
+    <div class="button-container">
+        <button class="blue-button" id="getEmojiButton">立即获取 表情包</button>
+    </div>
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img src="6.jpg" alt="QR Code" style="max-width: 100%; height: auto;">
+        <p>扫描二维码，关注我的视频号</p>
+    </div>
+</div>
+
+<!-- Security Statement -->
+<p class="security-statement">
+    因为这个是维聪做的网站，所以本网站已通过多重安全检测，确保您的访问安全无虞。
+</p>
+
+<script>
+    // Function to check if the user is on a mobile device
+    function isMobileDevice() {
+        return /Mobi|Android/i.test(navigator.userAgent);
+    }
+
+    // Function to handle button click event
+    document.getElementById('getEmojiButton').addEventListener('click', function() {
+        if (isMobileDevice()) {
+            // Redirect to the specified link for mobile devices
+            window.location.href = 'https://w.url.cn/s/AMiEGI2#wechat_redirect';
+        } else {
+            // Show modal with QR code for desktop devices
+            showModal();
+        }
+    });
+
+    // Function to open the modal
+    function showModal() {
+        document.getElementById('myModal').style.display = 'block';
+    }
+
+    // Function to close the modal
+    function closeModal() {
+        document.getElementById('myModal').style.display = 'none';
+    }
+
+    // Close the modal when clicking outside of the modal content
+    window.onclick = function(event) {
+        var modal = document.getElementById('myModal');
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    }
+</script>
+</body>
+</html>
